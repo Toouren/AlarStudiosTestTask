@@ -1,0 +1,89 @@
+body {
+	margin: 0;
+	display: flex;
+	font-family: 'Arial';
+}
+
+.root {
+	display: flex;
+	margin: auto;
+	flex-direction: column;
+	min-width: 800px;
+}
+
+.user-table {
+	width: 100%;
+}
+
+.user-table__row {
+	margin: 15px 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.user-table__name-column,
+.user-table__phone-column {
+	width: 40%;
+}
+
+.user-table__name-column input,
+.user-table__phone-column input,
+.new-user-form__name-column input,
+.new-user-form__phone-column input {
+	cursor: text;
+	outline: none;
+	padding: 0;
+	border: none;
+	border-bottom: 1px solid black;
+}
+
+.user-table__name-column input:disabled,
+.user-table__phone-column input:disabled {
+	cursor: default;
+	border: none;
+	color: black;
+	background-color: white;
+}
+
+.user-table__button_column,
+.new-user-form__button_column {
+	width: 20%;
+}
+
+.user-table__button_column {
+	display: flex;
+}
+
+.user-table__button_column .edit-button {
+	margin-right: 5px;
+}
+
+.user-table__button_column .delete-button {
+	background-color: white;
+    color: black;
+	border: 1px solid #f49ec4;
+	width: 40%;
+}
+
+.user-table__button_column input,
+.new-user-form__button_column input {
+	cursor: pointer;
+	width: 100%;
+	border: none;
+	border-radius: 14px;
+	outline: none;
+	color: white;
+	background-color: #f49ec4;
+}
+
+.new-user-form {
+	display: flex;
+	margin: 20px 0;
+    justify-content: space-between;
+}
+
+.validation-error-message {
+	color: red;
+    font-size: 12px;
+    text-align: center;
+}

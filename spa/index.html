@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="styles/index.css">
+	<head>
+	<body>
+		<!-- Шаблон формы добавления нового пользователя -->
+		<script type="text/template" id="NEW_USER_FORM_TEMPLATE">
+			<div class="new-user-form">
+				<div class="new-user-form__name-column">
+					<input
+						type="text"
+						id="NEW_USER_FORM_NAME_INPUT"
+						value=<%= model.username %>
+						placeholder="Имя"							
+					/>
+				</div>
+				<div class="new-user-form__phone-column">
+					<input
+						type="phone"
+						id="NEW_USER_FORM_PHONE_INPUT"
+						value=<%= model.userphone %>
+						placeholder="Телефон"
+					/>
+				</div>
+				<div class="new-user-form__button_column">
+					<input id="NEW_USER_FORM_ADD_BUTTON" type="button" value="Добавить" />
+				</div>
+			</div>
+			<% if (!modelValid) { %>
+				<div class="validation-error-message">
+					Ошбика заполнения формы
+				</div>
+			<% } %>
+		</script>
+		<!-- Шаблон строки таблицы пользователей -->
+		<script type="text/template" id="USER_TABLE_ROW_TEMPLATE"> 
+            <div class="user-table__row"> 
+                <div class="user-table__name-column">
+					<% if (state === 'view') { %>
+						<input
+							disabled
+							type="text"
+							value=<%= name %>
+							id=<%= nameInputId %>
+							placeholder="Имя"
+						/>
+					<% } else { %>
+						<input
+							type="text"
+							value=<%= name %>
+							id=<%= nameInputId %>
+							placeholder="Имя"
+						/>
+					<% } %>
+                </div>
+                <div class="user-table__phone-column">
+					<% if (state === 'view') { %>
+						<input disabled type="text" value=<%= phone %> id=<%= phoneInputId %> placeholder="Телефон" />
+					<% } else { %>
+						<input type="text" value=<%= phone %> id=<%= phoneInputId %> placeholder="Телефон" />
+					<% } %>
+				</div>
+				<div class="user-table__button_column">
+					<input class="edit-button" type="button" value=<%= state === 'view' ? 'Изменить' : 'Сохранить' %> />
+					<input class="delete-button" type="button" value="Удалить" />
+                </div>
+			</div>
+			<% if (!modelValid) { %>
+				<div class="validation-error-message">
+					Ошбика изменения данных
+				</div>
+			<% } %>
+        </script>
+		<div class="root">
+			<div id="USER_TABLE_CONTAINER" class="user-table">
+				<div class="user-table__row">
+					<div class="user-table__name-column">Имя</div>
+					<div class="user-table__phone-column">Телефон</div>
+					<div class="user-table__button_column"></div>
+				</div>
+			</div>
+			<div id="NEW_USER_FORM_CONTAINER" class="user-table"></div>
+		</div>
+		<script type="text/javascript" src="libs/jquery.js"></script>
+        <script type="text/javascript" src="libs/underscore.js"></script>
+        <script type="text/javascript" src="libs/backbone.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+	</body>
+</html>
